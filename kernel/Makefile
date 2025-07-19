@@ -33,7 +33,7 @@ KSU_GITHUB_VERSION_COMMIT := $(shell $(CURL_BIN) -sI "https://api.github.com/rep
 LOCAL_GIT_EXISTS := $(shell test -e $(srctree)/$(src)/../.git && echo 1 || echo 0)
 
 define get_ksu_version_full
-v$1-$(shell cd $(srctree)/$(src); $(GIT_BIN) rev-parse --short=8 HEAD)@$(shell cd $(srctree)/$(src); $(GIT_BIN) rev-parse --abbrev-ref HEAD)
+v$1-$(shell cd $(srctree)/$(src); $(GIT_BIN) rev-parse --short=8 HEAD)@Dugh
 endef
 
 ifeq ($(KSU_GITHUB_VERSION_COMMIT),)
@@ -58,7 +58,7 @@ ifeq ($(KSU_GITHUB_VERSION),)
     $(info -- $(REPO_NAME) version (local .git): $(KSU_VERSION_FULL))
     $(info -- $(REPO_NAME) Formatted version (local .git): $(KSU_VERSION))
   else
-    KSU_VERSION_FULL := v$(KSU_VERSION_API)-$(REPO_NAME)-unknown@unknown
+    KSU_VERSION_FULL := v$(KSU_VERSION_API)-$(REPO_NAME)-unknown@MyCustomKernel
     $(warning -- $(REPO_NAME) version: $(KSU_VERSION_FULL))
   endif
 else
